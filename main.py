@@ -4,6 +4,8 @@ from twilio.rest import Client
 
 SID = os.environ['SID']
 TOKEN = os.environ['TOKEN']
+NUMBER = os.environ['NUMBER']
+
 def main():
     client = Client(SID, TOKEN)
     message = "Test"
@@ -13,7 +15,7 @@ def main():
         if message != "":
             client.messages.create(
                 to= f"+1{recipient}",
-                from_="+19496702384",
+                from_=NUMBER,
                 body=message)
             print("Message sent!")
         else:
